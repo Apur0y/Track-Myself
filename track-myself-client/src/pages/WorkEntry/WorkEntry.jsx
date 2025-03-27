@@ -2,6 +2,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addSkills} from '../../feature/calculate/calculateSlice';
+import AllSkils from './AllSkills/AllSkils';
 
 const WorkEntry = () => {
 
@@ -18,6 +19,7 @@ const WorkEntry = () => {
             </button>
 
             <p>{value}</p>
+            <AllSkils></AllSkils>
             
         </div>
     );
