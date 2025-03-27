@@ -9,7 +9,7 @@ const app = express();
 
 
  
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://track_myself:bw4Cw5IQATPRC7Aq@thelaststand.sh6jy.mongodb.net/?appName=thelaststand";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -48,6 +48,24 @@ app.post('/skills',async(req,res)=>{
 app.post('/myskills',async(req,res)=>{
     const task = req.body;
     const result = await myskillsCollection.insertOne(task)
+    res.send(result)
+})
+
+
+app.put('/myskills/:id',async(req,res)=>{
+    const {id} = req.params;
+    const result = await myskillsCollection.updateOne({_id: new ObjectId(id)}, {
+      $set:{
+        type:"done"
+      }
+    })
+    res.send(result)
+})
+
+
+app.delete('/myskills/:id',async(req,res)=>{
+    const {id} = req.params;
+    const result = await myskillsCollection.deleteOne({_id: new ObjectId(id)})
     res.send(result)
 })
 

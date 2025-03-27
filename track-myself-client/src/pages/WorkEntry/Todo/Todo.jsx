@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Todo = () => {
   const [task, setTask] = useState({ title: "", description: "", type:"todo" });
@@ -17,9 +18,10 @@ const Todo = () => {
     try {
 
       await axios.post("http://localhost:5000/myskills", task)
-      .then(res=>console.log(res.data))
+      .then(res=>{console.log(res.data)
+    toast("Task added")})
       setMessage("Task added successfully!");
-      setTask({ title: "", description: "" });
+      setTask({ title: "", description: "",type:"todo" });
     } catch (error) {
       setMessage("Failed to add task. Try again.",error.message);
     }
@@ -38,6 +40,7 @@ const Todo = () => {
           className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
           required
         />
+
         <textarea
           name="description"
           value={task.description}
@@ -46,6 +49,16 @@ const Todo = () => {
           className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
           required
         ></textarea>
+                <input
+          type="text"
+          name="todo"
+          value='todo'
+          onChange={handleChange}
+          placeholder="Type"
+          className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
+          disabled
+          required
+        />
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"

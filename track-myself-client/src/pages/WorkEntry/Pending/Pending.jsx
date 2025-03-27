@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FaCheck } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { toast } from 'react-toastify';
 
 const Pending = () => {
 
@@ -18,6 +19,28 @@ const Pending = () => {
     },[tasks])
     
     const todo= tasks.filter(task=>task.type =='todo')
+
+    const HandleDone=(id)=>{
+      console.log("Here id",id);
+      axios.put(`http://localhost:5000/myskills/${id}`)
+      .then((res)=>{
+
+        console.log(res.data)
+        setTask(tasks)
+        toast("Congratulation on DONE")
+      })
+     
+    }
+
+    const handleDelete=(id)=>{
+      axios.delete(`http://localhost:5000/myskills/${id}`)
+      .then((res)=>{
+
+        console.log(res.data)
+        setTask(tasks)
+        toast("Task Deleted")
+      })
+    }
 
     return (
         <div className="max-w-4xl mx-auto text-black backdrop-blur-2xl bg-green-300 rounded-md p-6">
@@ -42,10 +65,10 @@ const Pending = () => {
                     <td className="p-4 flex gap-3">{index+1 }. {task.title}<FaLongArrowAltRight className='my-auto ' /></td>
                     <td className="text-left my-auto">{task.description}</td>
                     <td className="p-1 flex justify-center gap-2">
-                      <button className=" text-green-600 px-2  rounded-lg hover:bg-green-600 hover:text-white cursor-pointer  transition-all">
+                      <button onClick={()=>HandleDone(task._id)} className=" text-green-600 px-2  rounded-lg hover:bg-green-600 hover:text-white cursor-pointer  transition-all">
                       <FaCheck className='my-auto '/>
                       </button>
-                      <button className=" text-red-500 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-black cursor-pointer  transition-all">
+                      <button onClick={()=>handleDelete(task._id)} className=" text-red-500 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-black cursor-pointer  transition-all">
                       <MdDelete className='my-auto '/>
                       </button>
                     </td>

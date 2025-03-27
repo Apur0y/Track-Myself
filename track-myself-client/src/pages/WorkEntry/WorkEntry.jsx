@@ -10,8 +10,9 @@ const WorkEntry = () => {
     return (
         <div>
             <div className='flex my-12'>
-            <Todo></Todo>
             <Pending></Pending>
+            <Todo></Todo>
+           
             </div>
 
             
