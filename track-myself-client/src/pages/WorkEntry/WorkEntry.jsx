@@ -1,25 +1,19 @@
 
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addSkills} from '../../feature/calculate/calculateSlice';
 import AllSkils from './AllSkills/AllSkils';
+import Pending from './Pending/Pending';
+import Todo from './Todo/Todo';
 
 const WorkEntry = () => {
 
 
-    const value = useSelector(state=>state.calculate.value);
-    const dispatch =useDispatch()
-    console.log(value);
 
     return (
         <div>
+            <div className='flex my-12'>
+            <Todo></Todo>
+            <Pending></Pending>
+            </div>
 
-            <button  aria-label="Increment value" className='btn' onClick={()=>dispatch(addSkills())}>
-                Click here
-            </button>
-
-            <p>{value}</p>
-            <AllSkils></AllSkils>
             
         </div>
     );

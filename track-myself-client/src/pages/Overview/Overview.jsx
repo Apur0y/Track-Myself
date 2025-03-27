@@ -1,9 +1,10 @@
 import React from 'react';
+import AllSkills from '../WorkEntry/AllSkills/AllSkils';
 
 const Overview = () => {
     return (
         <div>
-            howhoh
+            <AllSkills></AllSkills>
         </div>
     );
 };

@@ -4,6 +4,8 @@ const port =process.env.PORT || 5000;
 
 const app = express();
  app.use(cors())
+ app.use(express.json()); // ✅ This ensures req.body is parsed as an object
+
 
 
  
@@ -23,20 +25,31 @@ async function run() {
   try {
 
     const skillsCollection = client.db("track_myself").collection("skills")
+    const myskillsCollection = client.db("track_myself").collection("my_skills")
 
 app.get('/skills',async(req,res)=>{
-
     const result = await skillsCollection.find().toArray()
     res.send(result) 
 
 })
+app.get('/myskills',async(req,res)=>{
+    const result = await myskillsCollection.find().toArray()
+    res.send(result) 
 
-app.post('skills',async(req,res)=>{
+})
+
+app.post('/skills',async(req,res)=>{
     const skill = req.body;
     const result = await skillsCollection.insertOne(skill)
     res.send(result)
 })
 
+
+app.post('/myskills',async(req,res)=>{
+    const task = req.body;
+    const result = await myskillsCollection.insertOne(task)
+    res.send(result)
+})
 
 
 
