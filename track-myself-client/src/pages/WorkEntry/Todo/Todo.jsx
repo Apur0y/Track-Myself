@@ -28,7 +28,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-rose-950 rounded-lg shadow-md">
+    <div className="max-w-md mx-auto p-6 bg-rose-950  text-white rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-4">Add a New Task</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

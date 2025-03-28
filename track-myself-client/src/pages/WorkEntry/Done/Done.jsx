@@ -5,7 +5,7 @@ import { MdCalendarMonth, MdDelete } from "react-icons/md";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { toast } from 'react-toastify';
 
-const Pending = () => {
+const Done = () => {
 
     const [tasks,setTask] =useState([])
 
@@ -13,24 +13,24 @@ const Pending = () => {
        axios.get("http://localhost:5000/myskills")
        .then(res=>{
         setTask(res.data)
-       
+     
        })
         
     },[tasks])
     
-    const todo= tasks.filter(task=>task.type =='todo')
+    const todo= tasks.filter(task=>task.type =='done')
 
-    const HandleDone=(id)=>{
-      console.log("Here id",id);
-      axios.put(`http://localhost:5000/myskills/${id}`)
-      .then((res)=>{
+    // const HandleDone=(id)=>{
+    //   console.log("Here id",id);
+    //   axios.put(`http://localhost:5000/myskills/${id}`)
+    //   .then((res)=>{
 
-        console.log(res.data)
-        setTask(tasks)
-        toast("Congratulation on DONE")
-      })
+    //     console.log(res.data)
+    //     setTask(tasks)
+    //     toast("Congratulation on DONE")
+    //   })
      
-    }
+    // }
 
     const handleDelete=(id)=>{
       axios.delete(`http://localhost:5000/myskills/${id}`)
@@ -42,11 +42,14 @@ const Pending = () => {
       })
     }
 
+    const handleMonthly=()=>{
 
+
+    }
 
     return (
-        <div className="h-64 md:h-full flex-wrap md:max-w-4xl mx-auto overflow-y-auto text-black md:backdrop-blur-2xl bg-green-300 rounded-md md:p-6">
-        <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
+        <div className="max-w-4xl mx-auto text-black backdrop-blur-2xl bg-green-300 rounded-md p-6">
+        <h1 className="text-2xl font-bold text-center mb-6 ">Finished task</h1>
   
         <div className="overflow-x-auto">
           {todo.length > 0 ? (
@@ -54,7 +57,7 @@ const Pending = () => {
               <thead className="">
                 <tr className="text-left uppercase text-sm">
                   <th className="p-1">Title</th>
-                  <th className="p-1 hidden md:block">Description</th>
+                  <th className="p-1">Description</th>
                   <th className="p-1 text-center">Actions</th>
                 </tr>
               </thead>
@@ -65,15 +68,18 @@ const Pending = () => {
                     className="border-b hover:bg-green-200 transition-all"
                   >
                     <td className="p-4 flex gap-3">{index+1 }. {task.title}<FaLongArrowAltRight className='my-auto ' /></td>
-                      <td className="text-left my-auto hidden md:table-cell">{task.description}</td>
+                    <td className="text-left my-auto">{task.description}</td>
                     <td className="p-1 flex justify-center gap-2">
-                      <button onClick={()=>HandleDone(task._id)} className=" text-green-600 px-2  rounded-lg hover:bg-green-600 hover:text-white cursor-pointer  transition-all">
+                      {/* <button onClick={()=>HandleDone(task._id)} className=" text-green-600 px-2  rounded-lg hover:bg-green-600 hover:text-white cursor-pointer  transition-all">
                       <FaCheck className='my-auto '/>
+                      </button> */}
+                      <button onClick={()=>handleMonthly(task._id)} className=" text-red-500 px-4 py-2 rounded-lg hover:bg-gray-800 hover:text-black cursor-pointer  transition-all">
+                      <MdCalendarMonth className='my-auto text-green-600 '/>
                       </button>
                       <button onClick={()=>handleDelete(task._id)} className=" text-red-500 px-4 py-2 rounded-lg hover:bg-red-600 hover:text-black cursor-pointer  transition-all">
                       <MdDelete className='my-auto '/>
                       </button>
-                   
+                      
                     </td>
                   </tr>
                 ))}
@@ -87,4 +93,4 @@ const Pending = () => {
     );
 };
 
-export default Pending;
+export default Done;
