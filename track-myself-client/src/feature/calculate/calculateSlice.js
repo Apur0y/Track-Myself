@@ -3,11 +3,11 @@ import axios from 'axios'
 
 // ✅ Correct Thunk Name (Renamed from "kills" to "fetchSkills")
 export const fetchSkills = createAsyncThunk("calculate/skills", async () => {
-  const response = await axios.get("http://localhost:5000/skills");
+  const response = await axios.get("https://track-myself-server.vercel.app/skills");
   return response.data;
 });
 export const fetchMySkills = createAsyncThunk("calculate/myskills", async () => {
-  const response = await axios.get("http://localhost:5000/myskills");
+  const response = await axios.get("https://track-myself-server.vercel.app/myskills");
   return response.data;
 });
 

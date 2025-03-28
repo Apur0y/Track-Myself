@@ -17,7 +17,7 @@ const Todo = () => {
 
     try {
 
-      await axios.post("http://localhost:5000/myskills", task)
+      await axios.post("https://track-myself-server.vercel.app/myskills", task)
       .then(res=>{console.log(res.data)
     toast("Task added")})
       setMessage("Task added successfully!");

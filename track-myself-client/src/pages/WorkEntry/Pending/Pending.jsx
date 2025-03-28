@@ -10,7 +10,7 @@ const Pending = () => {
     const [tasks,setTask] =useState([])
 
     useEffect(()=>{
-       axios.get("http://localhost:5000/myskills")
+       axios.get("https://track-myself-server.vercel.app/myskills")
        .then(res=>{
         setTask(res.data)
        
@@ -22,7 +22,7 @@ const Pending = () => {
 
     const HandleDone=(id)=>{
       console.log("Here id",id);
-      axios.put(`http://localhost:5000/myskills/${id}`)
+      axios.put(`https://track-myself-server.vercel.app/myskills/${id}`)
       .then((res)=>{
 
         console.log(res.data)
@@ -33,7 +33,7 @@ const Pending = () => {
     }
 
     const handleDelete=(id)=>{
-      axios.delete(`http://localhost:5000/myskills/${id}`)
+      axios.delete(`https://track-myself-server.vercel.app/myskills/${id}`)
       .then((res)=>{
 
         console.log(res.data)
@@ -45,7 +45,7 @@ const Pending = () => {
 
 
     return (
-        <div className="h-64 md:h-full flex-wrap md:max-w-4xl mx-auto overflow-y-auto text-black md:backdrop-blur-2xl bg-green-300 rounded-md md:p-6">
+        <div className="h-72 md:h-full  md:max-w-4xl mx-auto overflow-y-auto text-black md:backdrop-blur-2xl bg-green-300 rounded-md md:p-6">
         <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
   
         <div className="overflow-x-auto">
@@ -62,7 +62,7 @@ const Pending = () => {
                 {todo.map((task, index) => (
                   <tr 
                     key={task._id || index} 
-                    className="border-b hover:bg-green-200 transition-all"
+                    className="border-b flex hover:bg-green-200 transition-all"
                   >
                     <td className="p-4 flex gap-3">{index+1 }. {task.title}<FaLongArrowAltRight className='my-auto ' /></td>
                       <td className="text-left my-auto hidden md:table-cell">{task.description}</td>

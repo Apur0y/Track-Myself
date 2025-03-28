@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar flex justify-between bg-base-100 shadow-sm">
+      <div className=" top-0 w-full z-30 pt-5 fixed flex justify-between bg-base-100 shadow-sm">
         <div className="">
           <a className="btn btn-ghost text-xl">Track Myself</a>
         </div>

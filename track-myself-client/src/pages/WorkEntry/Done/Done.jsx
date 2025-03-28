@@ -10,7 +10,7 @@ const Done = () => {
     const [tasks,setTask] =useState([])
 
     useEffect(()=>{
-       axios.get("http://localhost:5000/myskills")
+       axios.get("https://track-myself-server.vercel.app/myskills")
        .then(res=>{
         setTask(res.data)
      
@@ -22,7 +22,7 @@ const Done = () => {
 
     // const HandleDone=(id)=>{
     //   console.log("Here id",id);
-    //   axios.put(`http://localhost:5000/myskills/${id}`)
+    //   axios.put(`https://track-myself-server.vercel.app/myskills/${id}`)
     //   .then((res)=>{
 
     //     console.log(res.data)
@@ -33,7 +33,7 @@ const Done = () => {
     // }
 
     const handleDelete=(id)=>{
-      axios.delete(`http://localhost:5000/myskills/${id}`)
+      axios.delete(`https://track-myself-server.vercel.app/myskills/${id}`)
       .then((res)=>{
 
         console.log(res.data)
