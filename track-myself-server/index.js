@@ -22,6 +22,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     const skillsCollection = client.db("track_myself").collection("skills");
+    const targetCollection = client.db("track_myself").collection("target");
     const myskillsCollection = client
       .db("track_myself")
       .collection("my_skills");
@@ -67,6 +68,13 @@ async function run() {
       });
       res.send(result);
     });
+
+
+    app.get('/target',async(req,res)=>{
+      const result= await targetCollection.find().toArray();
+      res.send(result);
+    })
+
 
     await client.connect();
     console.log(
