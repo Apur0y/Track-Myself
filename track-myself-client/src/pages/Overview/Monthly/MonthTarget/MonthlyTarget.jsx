@@ -7,29 +7,68 @@ import { toast } from "react-toastify";
 
 const MonthlyTarget = () => {
   const [tasks, setTask] = useState([]);
+  const [formData,setFormData]=useState({
+    topic: "",
+    description:"",
+    month:""
+
+  })
+  
+
+  const handleChange=(e)=>{
+   e.preventDefault();
+    const {name,value}=e.target;
+
+    setFormData((preVal)=>({
+        ...preVal,
+        [name]:value,
+    }))
+
+  }
 
   useEffect(() => {
-    axios.get("https://track-myself-server.vercel.app/myskills").then((res) => {
+    axios.get("https://track-myself-server.vercel.app/target").then((res) => {
+      
       setTask(res.data);
     });
   }, [tasks]);
 
-  const todo = tasks.filter((task) => task.type == "done");
+//   const todo = tasks.filter((task) => task.type == "done");
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://track-myself-server.vercel.app/myskills/${id}`)
+      .delete(`https://track-myself-server.vercel.app/target/${id}`)
       .then((res) => {
         console.log(res.data);
         setTask(tasks);
-        toast("Task Deleted");
+        toast("Topic Deleted");
       });
   };
 
-  const handleMonthly = () => {};
+  const handleMonthly = (e) => {
+   e.preventDefault();
+
+    try {
+        axios.post("https://track-myself-server.vercel.app/target",formData)
+        .then(res=>{
+            console.log(res.data)
+            toast("Target is Set!!!!")
+            document.getElementById("my_modal_4").close()
+            setFormData({
+                topic: "",
+                description:"",
+                month:""
+            })
+        })
+    
+    } catch (error) {
+        console.log("Here is",error.message);
+    }
+  
+  };
 
   const handleAddTarget = () => {
-    console.log("Target");
+
     document.getElementById("my_modal_4").showModal();
   };
 
@@ -47,7 +86,7 @@ const MonthlyTarget = () => {
       </div>
 
       <div className="overflow-x-auto">
-        {todo.length > 0 ? (
+        {tasks.length > 0 ? (
           <table className="border-collapse w-full text-black shadow-md rounded-lg">
             <thead className="">
               <tr className="text-left uppercase text-sm">
@@ -57,13 +96,13 @@ const MonthlyTarget = () => {
               </tr>
             </thead>
             <tbody>
-              {todo.map((task, index) => (
+              {tasks.map((task, index) => (
                 <tr
                   key={task._id || index}
                   className="border-b hover:bg-green-200 transition-all"
                 >
                   <td className="p-4 flex gap-3">
-                    {index + 1}. {task.title}
+                    {index + 1}. {task.topic}
                     <FaLongArrowAltRight className="my-auto " />
                   </td>
                   <td className="text-left my-auto">{task.description}</td>
@@ -96,11 +135,14 @@ const MonthlyTarget = () => {
       <dialog id="my_modal_4" className="modal ">
         <div className="modal-box ml-44 w-11/12 max-w-5xl">
           <h3 className="font-bold text-center text-lg">Target</h3>
-          <div className="p-6 modal-action bg-white shadow-lg rounded-lg w-full max-w-md mx-auto">
-            <form className="space-y-4 dialog">
+          
+            <form onSubmit={handleMonthly} className="space-y-4 w-full dialog">
               <div>
                 <label className="block font-semibold mb-1">Topic:</label>
                 <input
+                name="topic"
+                onChange={handleChange}
+                value={formData.topic}
                   type="text"
                   placeholder="Enter Topic"
                   className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -110,6 +152,10 @@ const MonthlyTarget = () => {
               <div>
                 <label className="block font-semibold mb-1">Description:</label>
                 <textarea
+                
+                name="description"
+                onChange={handleChange}
+                value={formData.description}
                   placeholder="Enter Description"
                   rows="3"
                   className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -119,6 +165,10 @@ const MonthlyTarget = () => {
               <div>
                 <label className="block font-semibold mb-1">Month:</label>
                 <input
+                
+                name="month"
+                onChange={handleChange}
+                value={formData.month}
                   type="date"
                   className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -127,11 +177,15 @@ const MonthlyTarget = () => {
               <div className="flex justify-end gap-3">
                 <button
                   type="button"
+                  id="closeModal"
+                  onClick={()=>document.getElementById("my_modal_4").close()}
                   className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
                 >
                   Close
                 </button>
+                
                 <button
+                
                   type="submit"
                   className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
                 >
@@ -139,7 +193,7 @@ const MonthlyTarget = () => {
                 </button>
               </div>
             </form>
-          </div>
+          
         </div>
       </dialog>
     </div>

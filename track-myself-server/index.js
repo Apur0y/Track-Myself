@@ -75,6 +75,17 @@ async function run() {
       res.send(result);
     })
 
+    app.post('/target',async(req,res)=>{
+      const target = req.body;
+      const result = await targetCollection.insertOne(target)
+      res.send(result);
+    })
+
+    app.delete('/target/:id',async(req,res)=>{
+      const {id} =req.params;
+      const result = await targetCollection.deleteOne({_id : new ObjectId(id)})
+      res.send(result)
+    })
 
     await client.connect();
     console.log(
