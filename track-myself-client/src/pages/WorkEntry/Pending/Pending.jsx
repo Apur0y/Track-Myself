@@ -45,12 +45,12 @@ const Pending = () => {
 
 
     return (
-        <div className="h-72 md:h-full  md:max-w-4xl mx-auto overflow-y-auto text-black md:backdrop-blur-2xl bg-green-300 rounded-md md:p-6">
+        <div className="h-72 scale-80 md:scale-100 md:h-full  md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
         <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
   
         <div className="overflow-x-auto">
           {todo.length > 0 ? (
-            <table className="border-collapse  text-black shadow-md rounded-lg">
+            <table className="border-collapse shadow-md rounded-lg">
               <thead className="">
                 <tr className="text-left uppercase text-sm">
                   <th className="p-1">Title</th>
@@ -62,7 +62,7 @@ const Pending = () => {
                 {todo.map((task, index) => (
                   <tr 
                     key={task._id || index} 
-                    className="border-b flex hover:bg-green-200 transition-all"
+                    className="border-b hover:bg-green-200 transition-all"
                   >
                     <td className="p-4 flex gap-3">{index+1 }. {task.title}<FaLongArrowAltRight className='my-auto ' /></td>
                       <td className="text-left my-auto hidden md:table-cell">{task.description}</td>

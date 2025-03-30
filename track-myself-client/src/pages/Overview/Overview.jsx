@@ -1,6 +1,7 @@
 import React from "react";
 import AllSkills from "../WorkEntry/AllSkills/AllSkils";
 import { FaChartLine } from "react-icons/fa6";
+import MonthlyTarget from "./Monthly/MonthTarget/MonthlyTarget";
 
 const Overview = () => {
   return (
@@ -47,8 +48,11 @@ const Overview = () => {
         </div>
       </div>
 
+     
+
       <div className="lg:flex-1 bg-green-50 p-5 rounded-lg mr-5">
         <AllSkills></AllSkills>
+        <MonthlyTarget></MonthlyTarget>
       </div>
     </div>
   );

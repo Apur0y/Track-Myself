@@ -20,17 +20,7 @@ const Done = () => {
     
     const todo= tasks.filter(task=>task.type =='done')
 
-    // const HandleDone=(id)=>{
-    //   console.log("Here id",id);
-    //   axios.put(`https://track-myself-server.vercel.app/myskills/${id}`)
-    //   .then((res)=>{
 
-    //     console.log(res.data)
-    //     setTask(tasks)
-    //     toast("Congratulation on DONE")
-    //   })
-     
-    // }
 
     const handleDelete=(id)=>{
       axios.delete(`https://track-myself-server.vercel.app/myskills/${id}`)
