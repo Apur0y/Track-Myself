@@ -93,6 +93,7 @@ const MonthlyTarget = () => {
                 <th className="p-1">Title</th>
                 <th className="p-1">Description</th>
                 <th className="p-1 text-center">Actions</th>
+                <th className="p-1 text-center">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -122,6 +123,9 @@ const MonthlyTarget = () => {
                     >
                       <MdDelete className="my-auto " />
                     </button>
+                  </td>
+                  <td className="text-center">
+                    {task?.status}
                   </td>
                 </tr>
               ))}
