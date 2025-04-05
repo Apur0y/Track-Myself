@@ -38,12 +38,12 @@ const Done = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto text-black backdrop-blur-2xl bg-green-300 rounded-md p-6">
+        <div className="max-h-screen overflow-scroll  mx-auto text-black backdrop-blur-2xl  rounded-md p-6">
         <h1 className="text-2xl font-bold text-center mb-6 ">Finished task</h1>
   
         <div className="overflow-x-auto">
           {todo.length > 0 ? (
-            <table className="border-collapse  text-black shadow-md rounded-lg">
+            <table className="border-collapse w-full text-black shadow-md rounded-lg">
               <thead className="">
                 <tr className="text-left uppercase text-sm">
                   <th className="p-1">Title</th>

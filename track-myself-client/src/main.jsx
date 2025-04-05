@@ -10,6 +10,7 @@ import store from "./app/store";
 import { Provider } from "react-redux";
 import MonthlyTarget from "./pages/Overview/Monthly/MonthTarget/MonthlyTarget.jsx";
 import AllSkills from "./pages/WorkEntry/AllSkills/AllSkils.jsx";
+import Done from "./pages/WorkEntry/Done/Done.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
           },{
             path:'dashboard',
             element:<AllSkills></AllSkills>
+          },
+          {
+            path:'finished',
+            element:<Done></Done>
           }
         ]
       },

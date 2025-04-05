@@ -82,7 +82,7 @@ const AllSkills = () => {
   };
 
   return (
-    <div>
+    <div className="max-h-screen overflow-auto">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ width: "45%", height: "300px" }}>
           <Bar

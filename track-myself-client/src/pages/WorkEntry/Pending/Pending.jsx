@@ -45,12 +45,12 @@ const Pending = () => {
 
 
     return (
-        <div className="h-72 scale-80 md:scale-100 md:h-full  md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
+        <div className=" rounded-lg w-full md:scale-100 md:h-full  md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
         <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
   
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto w-full">
           {todo.length > 0 ? (
-            <table className="border-collapse shadow-md rounded-lg">
+            <table className="border-collapse shadow-md rounded-lg w-full ">
               <thead className="">
                 <tr className="text-left uppercase text-sm">
                   <th className="p-1">Title</th>

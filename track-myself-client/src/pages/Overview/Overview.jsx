@@ -7,7 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 const Overview = () => {
   const [month, setMonth] = useState("");
   const [weekly, setWeek] = useState("");
-  const [dash, setDash] = useState("");
+  const [dash, setDash] = useState("bg-green-50 ");
   const navigate = useNavigate();
   const handleActive = (btn) => {
    
@@ -17,10 +17,11 @@ const Overview = () => {
       setDash("");
       navigate('monthly')
     }
-    if (btn == "weekly") {
+    if (btn == "finished") {
       setMonth("");
       setWeek("bg-green-50");
       setDash("");
+      navigate("finished")
     }
     if (btn == "dash") {
       setMonth("");
@@ -31,7 +32,7 @@ const Overview = () => {
   };
 
   return (
-    <div className="pt-12 flex transition-all duration-700 ">
+    <div className="pt-12 flex transition-all duration-700 min-h-screen">
       <div className="lg:w-64 hidden lg:inline-block ">
 
 
@@ -107,10 +108,10 @@ const Overview = () => {
           <h1 className={`${weekly}   px-3 py-2  ml-4 rounded-l-2xl flex`}>
             <button
               className="flex gap-2"
-              onClick={() => handleActive("weekly")}
+              onClick={() => handleActive("finished")}
             >
               <FaChartLine className="my-auto" />
-              Weekly
+              Finished
             </button>
           </h1>
           <div

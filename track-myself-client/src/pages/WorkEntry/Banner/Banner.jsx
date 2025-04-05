@@ -14,7 +14,7 @@ const Banner = () => {
     >
       <div className=" h-full w-full flex items-center justify-center">
         <Swiper
-          pagination={{ clickable: true }}
+          
        
           autoplay={{ delay: 3000, disableOnInteraction: false }} // ✅ Autoplay enabled
           modules={[Pagination,  Autoplay]}
