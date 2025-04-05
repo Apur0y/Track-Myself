@@ -8,6 +8,8 @@ import Overview from "./pages/Overview/Overview.jsx";
 import WorkEntry from "./pages/WorkEntry/WorkEntry.jsx";
 import store from "./app/store";
 import { Provider } from "react-redux";
+import MonthlyTarget from "./pages/Overview/Monthly/MonthTarget/MonthlyTarget.jsx";
+import AllSkills from "./pages/WorkEntry/AllSkills/AllSkils.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,15 @@ const router = createBrowserRouter([
       {
         path: "/overview",
         element: <Overview></Overview>,
+        children:[
+          {
+            path:"monthly",
+            element:<MonthlyTarget></MonthlyTarget>
+          },{
+            path:'dashboard',
+            element:<AllSkills></AllSkills>
+          }
+        ]
       },
       {
         path: "/",
