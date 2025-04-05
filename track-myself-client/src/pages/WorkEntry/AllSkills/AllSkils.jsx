@@ -127,6 +127,32 @@ const AllSkills = () => {
           </p>
         </div>
       </div>
+      <div className="flex my-14 justify-center items-center gap-5">
+        <Monthly></Monthly> 
+        <div className="text-center bg-white p-6 w-md rounded-lg shadow-md ">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            Skills Overview
+          </h2>
+
+          <p className="text-gray-600">
+            <span className="font-medium text-gray-700">
+              All Stored Technologies:
+            </span>{" "}
+            {alltecnologies}
+          </p>
+
+          <p className="text-gray-600">
+            <span className="font-medium text-gray-700">
+              My Gathering So Far:
+            </span>{" "}
+            {mineSkills}
+          </p>
+
+          <p className="text-white font-medium py-2 px-4 rounded-lg bg-green-500 mt-4 inline-block">
+            Top Percentage: {percentage}%
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
