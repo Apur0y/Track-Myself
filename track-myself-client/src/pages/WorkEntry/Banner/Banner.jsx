@@ -16,7 +16,7 @@ const Banner = () => {
         <Swiper
           
        
-          autoplay={{ delay: 3000, disableOnInteraction: false }} // ✅ Autoplay enabled
+          autoplay={{ delay: 4000, disableOnInteraction: true }} // ✅ Autoplay enabled
           modules={[Pagination,  Autoplay]}
           className="w-full max-w-4xl px-6"
         >
@@ -34,45 +34,25 @@ const Banner = () => {
 
           {/* Slide 2 */}
           <SwiperSlide>
-            <div className="text-white  p-8 rounded-xl text-center max-w-xl mx-auto">
+            <div className="text-white  p-8 rounded-xl text-center  mx-auto">
               <h1 className="text-4xl font-bold mb-4">
-                "Push yourself, because no one else is going to do it for you."
+                "Until 30 focus on learning, whatever it is MASTER on that."
               </h1>
               <p className="text-lg mb-6">
-                "Discipline is the bridge between goals and accomplishment."
+                "Remove distraction from life. Stay focused"
               </p>
-              <div className="flex justify-center space-x-4">
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  Be yourself
-                </button>
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  ToDo
-                </button>
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  Done
-                </button>
-              </div>
+          
             </div>
           </SwiperSlide>
 
           {/* Slide 3 */}
           <SwiperSlide>
-            <div className="text-white  p-8 rounded-xl text-center max-w-xl mx-auto">
+            <div className="text-white  p-8 rounded-xl text-center  mx-auto">
               <h1 className="text-4xl font-bold mb-4">
                 "If you want to be unique, then develop yourself as unique."
               </h1>
               <p className="text-lg mb-6">"Mark my word."</p>
-              <div className="flex justify-center space-x-4">
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  Be yourself
-                </button>
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  ToDo
-                </button>
-                <button className="bg-[#e9372a] hover:bg-orange-700 text-white px-4 py-2 rounded-lg">
-                  Done
-                </button>
-              </div>
+             
             </div>
           </SwiperSlide>
         </Swiper>

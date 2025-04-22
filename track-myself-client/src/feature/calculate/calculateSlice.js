@@ -11,6 +11,8 @@ export const fetchMySkills = createAsyncThunk("calculate/myskills", async () => 
   return response.data;
 });
 
+
+
 export const calculateSlice = createSlice({
   name: 'calculate',
   initialState: {

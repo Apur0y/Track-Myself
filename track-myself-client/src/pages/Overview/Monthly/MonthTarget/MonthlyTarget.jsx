@@ -15,6 +15,7 @@ const MonthlyTarget = () => {
   })
   
 
+
   const handleChange=(e)=>{
    e.preventDefault();
     const {name,value}=e.target;
@@ -32,6 +33,10 @@ const MonthlyTarget = () => {
       setTask(res.data);
     });
   }, [tasks]);
+
+const mainTasks=[...tasks].reverse();
+// console.log(mainTasks);
+// console.log(tasks);
 
 //   const todo = tasks.filter((task) => task.type == "done");
 
@@ -97,7 +102,7 @@ const MonthlyTarget = () => {
               </tr>
             </thead>
             <tbody>
-              {tasks.map((task, index) => (
+              {mainTasks.map((task, index) => (
                 <tr
                   key={task._id || index}
                   className="border-b hover:bg-green-200 transition-all"

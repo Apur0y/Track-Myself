@@ -1,4 +1,5 @@
 
+import Slider from '../Slider/Slider';
 import AllSkils from './AllSkills/AllSkils';
 import Banner from './Banner/Banner';
 import Done from './Done/Done';
@@ -22,6 +23,8 @@ const WorkEntry = () => {
             </div>
          
             </div>
+
+            <Slider></Slider>
 
             
         </div>

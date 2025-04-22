@@ -48,7 +48,7 @@ const Overview = () => {
           </div>
 
           <h1 className={`${dash}   px-3 py-2  ml-4 rounded-l-2xl flex`}>
-            <button className="flex gap-2" onClick={() => handleActive("dash")}>
+            <button className="flex gap-2 cursor-pointer " onClick={() => handleActive("dash")}>
               <FaChartLine className="my-auto" />
               Dashboard
             </button>
@@ -77,7 +77,7 @@ const Overview = () => {
 
           <h1 className={`${month}   px-3 py-2  ml-4 rounded-l-2xl flex`}>
             <button
-              className="flex gap-2"
+              className="flex gap-2 cursor-pointer"
               onClick={() => handleActive("monthly")}
             >
               <FaChartLine className="my-auto" />
@@ -107,7 +107,7 @@ const Overview = () => {
 
           <h1 className={`${weekly}   px-3 py-2  ml-4 rounded-l-2xl flex`}>
             <button
-              className="flex gap-2"
+              className="flex gap-2 cursor-pointer"
               onClick={() => handleActive("finished")}
             >
               <FaChartLine className="my-auto" />
