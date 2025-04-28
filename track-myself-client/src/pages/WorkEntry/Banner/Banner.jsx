@@ -9,7 +9,7 @@ import "swiper/css/autoplay"; // Optional, for clarity
 const Banner = () => {
   return (
     <div
-      className="bg-cover bg-center h-screen w-full"
+      className="bg-cover bg-center h-[300px] w-full"
    
     >
       <div className=" h-full w-full flex items-center justify-center">
