@@ -12,7 +12,7 @@ const WorkEntry = () => {
 
     return (
         <div>
-              <Banner></Banner>
+           
             <div className='flex gap-5 w-11/12 mx-auto flex-col py-10'>
           
           
@@ -26,7 +26,7 @@ const WorkEntry = () => {
 
             <Slider></Slider>
 
-            
+            <Banner></Banner>
         </div>
     );
 };

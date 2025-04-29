@@ -9,7 +9,7 @@ import "swiper/css/autoplay"; // Optional, for clarity
 const Banner = () => {
   return (
     <div
-      className="bg-cover bg-[#00AB96]   bg-center h-[300px] w-full"
+      className="bg-cover bg-[#6c938e]   bg-center h-[300px] w-full"
    
     >
       <div className=" h-full w-full flex items-center justify-center">
@@ -23,7 +23,7 @@ const Banner = () => {
           {/* Slide 1 */}
           <SwiperSlide>
             <div className="text-white text-center p-8">
-              <h1 className="text-4xl font-bold mb-4">
+              <h1 className="text-xl md:text-4xl font-bold mb-4">
                 "Push yourself, because no one else is going to do it for you."
               </h1>
               <p className="text-lg mb-6">

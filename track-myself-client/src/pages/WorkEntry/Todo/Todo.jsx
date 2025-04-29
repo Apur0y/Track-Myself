@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Todo = () => {
-  const [task, setTask] = useState({ title: "", description: "", type:"todo" });
+  const [task, setTask] = useState({ title: "", description: "", type:"todo",deadline:"" });
   const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="max-w-md  p-6 bg-rose-950  text-white rounded-lg shadow-md">
+    <div className=" p-6 bg-[#6c938e] text-white rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-4">Add the Development:</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
@@ -37,8 +37,15 @@ const Todo = () => {
           value={task.title}
           onChange={handleChange}
           placeholder="Task Title"
-          className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
+          className="w-full px-4 py-2 border rounded-lg  focus:ring-blue-300"
           required
+        />
+
+        <input type="date"
+        name="deadline"
+        value={task.deadline}
+        onChange={handleChange}
+        className="w-full px-4 py-2 border rounded-lg  focus:ring-blue-300"
         />
 
         <textarea
@@ -46,7 +53,7 @@ const Todo = () => {
           value={task.description}
           onChange={handleChange}
           placeholder="Task Description"
-          className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
+          className="w-full px-4 py-2 border rounded-lg focus:ring-blue-300"
           required
         ></textarea>
                 <input
@@ -55,7 +62,7 @@ const Todo = () => {
           value='todo'
           onChange={handleChange}
           placeholder="Type"
-          className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300"
+          className="w-full px-4 py-2 border rounded-lg  focus:ring-blue-300"
           disabled
           required
         />

@@ -22,7 +22,7 @@ const Overview = () => {
   };
 
   return (
-    <div className="pt-12 flex transition-all duration-700 min-h-screen">
+    <div className="pt-12 flex bg-[#00AB96] transition-all duration-700 min-h-screen">
       <div className="lg:w-64 hidden md:inline-block">
         {allOptions.map((tab) => (
           <div key={tab.id}>

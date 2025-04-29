@@ -20,7 +20,7 @@ const MainLayout = () => {
   return (
     <div className="">
       {/* <Navbar></Navbar> */}
-      <div className="pt-10">
+      <div className="">
         <Outlet></Outlet>
       </div>
 

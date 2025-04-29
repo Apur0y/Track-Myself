@@ -42,13 +42,15 @@ const Pending = () => {
       })
     }
 
+    // const options = { month: 'short', day: '2-digit', year: 'numeric', weekday: 'short' };
+
 
 
     return (
         <div className=" rounded-lg w-full md:scale-100 md:h-full  md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
         <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
   
-        <div className="overflow-x-auto w-full">
+        {/* <div className="overflow-x-auto w-full">
           {todo.length > 0 ? (
             <table className="border-collapse shadow-md rounded-lg w-full ">
               <thead className="">
@@ -82,34 +84,32 @@ const Pending = () => {
           ) : (
             <p className="text-center">No tasks available.</p>
           )}
-        </div>
+        </div> */}
 
         <div>
-          {
-            todo.map((task,index)=>(
-              <div className='bg-[#6c938e] p-3 mt-2 text-white'>
-               
-                <div className='flex justify-between '>
-                  <p>Time   Todday- Aappr 29, 2025 Fri</p>
-                  <p>View All</p>
-                </div>
+        {todo.map((task, index) => {
+  const date = new Date(task?.deadline + 'T00:00:00'); // avoid timezone issues
+  const options = { month: 'short', day: 'numeric', year: 'numeric', weekday: 'short' };
+  const formattedDeadline = date.toLocaleDateString('en-US', options);
 
-                <div className='flex justify-between '>
+  return (
+    <div key={index} className='bg-[#6c938e] p-6 rounded-md mt-2 text-white flex flex-col gap-4'>
+      <div className='flex justify-between'>
+        <p>Time Target</p>
+        <p>{formattedDeadline}</p>
+      </div>
 
-                <p>{task.title}</p>
+      <div className='flex justify-between flex-wrap gap-3'>
+        <p className='text-xl md:text-2xl'>{task.title}</p>
+        <div className='flex gap-3'>
+          <button onClick={()=>HandleDone(task._id)} className='py-1 px-4 rounded-md bg-green-500'>Done</button>
+          <button onClick={()=>handleDelete(task._id)} className='py-1 px-4 rounded-md bg-[#354e4b]'>Trash</button>
+        </div>
+      </div>
+    </div>
+  );
+})}
 
-                <div>
-                  <button className='btn'>Done</button>
-                  <button className='btn'>Trash</button>
-                </div>
-
-                </div>
-
-
-               
-                 </div>
-            ))
-          }
         </div>
       </div>
     );
