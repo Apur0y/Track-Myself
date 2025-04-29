@@ -83,6 +83,34 @@ const Pending = () => {
             <p className="text-center">No tasks available.</p>
           )}
         </div>
+
+        <div>
+          {
+            todo.map((task,index)=>(
+              <div className='bg-[#6c938e] p-3 mt-2 text-white'>
+               
+                <div className='flex justify-between '>
+                  <p>Time   Todday- Aappr 29, 2025 Fri</p>
+                  <p>View All</p>
+                </div>
+
+                <div className='flex justify-between '>
+
+                <p>{task.title}</p>
+
+                <div>
+                  <button className='btn'>Done</button>
+                  <button className='btn'>Trash</button>
+                </div>
+
+                </div>
+
+
+               
+                 </div>
+            ))
+          }
+        </div>
       </div>
     );
 };

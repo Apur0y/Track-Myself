@@ -18,7 +18,7 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="bg-[#00AB96]">
+    <div className="">
       {/* <Navbar></Navbar> */}
       <div className="pt-10">
         <Outlet></Outlet>
