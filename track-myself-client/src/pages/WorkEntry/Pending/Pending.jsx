@@ -47,8 +47,8 @@ const Pending = () => {
 
 
     return (
-        <div className=" rounded-lg w-full md:scale-100 md:h-full  md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
-        <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1>
+        <div className=" rounded-lg w-full md:scale-100 md:h-full mt-8 md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
+        {/* <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1> */}
   
         {/* <div className="overflow-x-auto w-full">
           {todo.length > 0 ? (

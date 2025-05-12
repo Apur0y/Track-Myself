@@ -3,6 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import TopNavbar from "../Navbar/TopNavbar";
 
 const MainLayout = () => {
   const [page,setPage]=useState(true)
@@ -19,7 +20,7 @@ const MainLayout = () => {
 
   return (
     <div className="">
-      {/* <Navbar></Navbar> */}
+      <TopNavbar></TopNavbar>
       <div className="">
         <Outlet></Outlet>
       </div>

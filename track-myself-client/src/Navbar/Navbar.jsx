@@ -25,7 +25,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className= {`top-0 w-full ${top?"bg-transparent " : "bg-teal-600/60 backdrop-blur-2xl" } z-30 pt-5 fixed flex justify-between  text-white`}>
+      <div className= {`top-0 w-full ${top?"bg-transparent " : "bg-teal-600/60 backdrop-blur-2xl" } z-40 pt-5 fixed flex justify-between  text-white`}>
         {/* <div className="">
           <a className="btn btn-ghost text-xl">Track Myself</a>
         </div> */}

@@ -28,7 +28,7 @@ const Todo = () => {
   };
 
   return (
-    <div className=" p-6 bg-[#6c938e] text-white rounded-lg shadow-md">
+    <div className=" p-6 bg-[#6c938e] text-white  max-w-sm shadow-md">
       <h2 className="text-xl font-bold mb-4">Add the Development:</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
