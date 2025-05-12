@@ -13,13 +13,17 @@ const WorkEntry = () => {
     return (
         <div>
            
-            <div className='flex gap-5 flex-col-reverse  mx-auto  py-10 '>
+            <div className='flex gap-5 flex-col-reverse md:flex-row mx-auto  py-15 '>
 
-            <div className='flex  mt-12 '>
+            <div className='flex  mt-10 '>
                 <Todo></Todo>
             </div>
 
+            <div className='flex-1'>
             <Pending></Pending>
+            </div>
+
+            
          
             </div>
 

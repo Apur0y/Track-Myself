@@ -19,7 +19,7 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="">
+    <div className="bg-[#2c3837]">
       <TopNavbar></TopNavbar>
       <div className="">
         <Outlet></Outlet>

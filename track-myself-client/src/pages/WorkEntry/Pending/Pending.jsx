@@ -47,8 +47,8 @@ const Pending = () => {
 
 
     return (
-        <div className=" rounded-lg w-full md:scale-100 md:h-full mt-8 md:max-w-4xl mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-white text-blackrounded-md md:p-6">
-        {/* <h1 className="text-2xl font-bold text-center mb-6 ">Tasks to Finish</h1> */}
+        <div className=" rounded-lg w-full md:scale-100 md:h-full mt-8  mx-auto overflow-y-auto  md:backdrop-blur-2xl bg-gray-700 text-blackrounded-md md:p-6">
+        <h1 className="text-2xl font-bold text-white text-center mb-6 ">Tasks to Finish</h1>
   
         {/* <div className="overflow-x-auto w-full">
           {todo.length > 0 ? (
@@ -93,7 +93,7 @@ const Pending = () => {
   const formattedDeadline = date.toLocaleDateString('en-US', options);
 
   return (
-    <div key={index} className='bg-[#6c938e] p-6 rounded-md mt-2 text-white flex flex-col gap-4'>
+    <div key={index} className='bg-[#6c938e] p-6 rounded-md mt-2 text-white flex flex-col gap-4 m-3'>
       <div className='flex justify-between'>
         <p>Time Target</p>
         <p>{formattedDeadline}</p>
