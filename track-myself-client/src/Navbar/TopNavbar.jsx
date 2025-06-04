@@ -66,7 +66,7 @@ const TopNavbar = () => {
 
             <Link to="/overview/dashboard">
               <button
-                className={`bg-teal-600 ${
+                className={`bg-teal-500 ${
                   page ? "" : "hidden"
                 } hover:bg-teal-700 text-white px-4 py-2 rounded-lg flex`}
               >
